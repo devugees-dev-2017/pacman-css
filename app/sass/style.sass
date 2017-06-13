@@ -1,0 +1,62 @@
+body
+  background-color: lighten(black, 30%)
+.container
+  overflow: hidden
+
+.chompy
+  left: 0%
+  position: relative
+  animation: chompy_move 3s ease-in infinite
+  animation-direction: alternate
+  height: 70px
+
+.chomp
+  width: 30px
+  height: 30px
+  background-color: yellow
+  clip-path: circle(50% at 0% 50%)
+  transform-origin: 50% 50%
+  position: relative
+
+.chomp:nth-child(1)
+  transform-origin: left 50%
+  animation: munch_top 1s infinite ease-in
+  top: 20px
+
+.chomp:nth-child(2)
+  transform: rotate(-120deg)
+  transform-origin: left 50%
+  clip-path: circle(50% at 0% 50%)
+  animation: munch_bottom 1s infinite ease-in
+  top: -10px
+
+
+@keyframes munch_top
+  0%, 100%
+    transform: rotate(240deg)
+  30%
+    transform: rotate(270deg)
+
+    
+@keyframes munch_bottom
+  0%, 100%
+    transform: rotate(120deg)
+  30%
+    transform: rotate(90deg)
+
+@keyframes chompy_move
+  0%
+    left: 20%
+  100%
+    left: calc(50% - 30px)
+
+.chompy_shadow
+  top: -5px
+  position: relative
+  left: -15px
+  width: 30px
+  height: 10px
+  border-radius: 100% 100%
+  background-color: black
+  filter: blur(2px)
+  
